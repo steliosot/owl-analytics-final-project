@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Generated datasets and outputs
+data/clean/*.csv
+data/messy/*.csv
+results/*.csv
+results/*.log
+
+# Keep folder placeholders
+!data/clean/.gitkeep
+!data/messy/.gitkeep
+!results/.gitkeep
+!reports/.gitkeep

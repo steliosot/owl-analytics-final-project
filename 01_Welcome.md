@@ -12,6 +12,12 @@ Your line manager, **Stelios**, wants to see whether you can move through the fu
 
 Each team gives you a different part of the project. At the end, you must send Stelios a short report explaining what you built, what you found, and what you would improve.
 
+## Fork This Repository
+
+Fork this repository, as you did for the mid-module capstone project.
+
+Use your fork for your final project work and final submission. Keep your work organized and make sure your final `README.md` explains what you submitted.
+
 ## Communication Channel
 
 This is the team channel for the final project:

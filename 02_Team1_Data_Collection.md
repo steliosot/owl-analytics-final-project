@@ -6,6 +6,105 @@ Elena gives you your first task:
 
 > "We need a reliable script that downloads market data. The API is public, but please do not send too many requests at the same time. Also, I want a proper log file because we need to know what happened if something fails."
 
+## First Step: Test the API
+
+Before you build the full downloader, run the given example script:
+
+```bash
+python scripts/get_one_record.py
+```
+
+This script downloads one `BTCUSDT` record and saves it as:
+
+```txt
+data/clean/one_record.csv
+```
+
+Open the script and read it carefully. It shows the basic idea you will reuse in your own `part1_build_dataset.py`: call the API, read the response, map the fields, and write a CSV row.
+
+## API
+
+You will use the Binance public market data API to extract data.
+
+Endpoint:
+
+```txt
+https://data-api.binance.vision/api/v3/klines
+```
+
+Example request:
+
+```txt
+https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1h&limit=1000
+```
+
+Useful documentation:
+
+- [Binance Spot REST API documentation](https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md)
+- [Binance market-data-only FAQ](https://github.com/binance/binance-spot-api-docs/blob/master/faqs/market_data_only.md)
+
+If the Binance API is unavailable, ask your instructor before switching API.
+
+## Dataset Specification
+
+Use these ten symbols:
+
+- `BTCUSDT`
+- `ETHUSDT`
+- `BNBUSDT`
+- `SOLUSDT`
+- `XRPUSDT`
+- `ADAUSDT`
+- `DOGEUSDT`
+- `AVAXUSDT`
+- `LINKUSDT`
+- `DOTUSDT`
+
+Use:
+
+- `interval=1h`
+- `limit=1000`
+
+This means your downloader should make one request per symbol.
+
+Expected dataset size:
+
+- 10 symbols
+- 1,000 records per symbol
+- 10,000 records total
+- 1 header row in the CSV
+- 10,001 lines total in `data/clean/clean_market_data.csv`
+
+The 10,000 records are a mixed collection of market candles across 10 symbols and 1,000 timestamps per symbol.
+
+## Required Columns
+
+Field mapping:
+
+| CSV column | Value |
+| --- | --- |
+| `symbol` | the symbol you requested, for example `BTCUSDT` |
+| `interval` | the interval you requested, `1h` |
+| `open_time` | `record[0]`, converted to a readable timestamp if possible |
+| `open` | `record[1]` |
+| `high` | `record[2]` |
+| `low` | `record[3]` |
+| `close` | `record[4]` |
+| `volume` | `record[5]` |
+| `close_time` | `record[6]`, converted to a readable timestamp if possible |
+| `quote_volume` | `record[7]` |
+| `trade_count` | `record[8]` |
+| `taker_buy_base_volume` | `record[9]` |
+| `taker_buy_quote_volume` | `record[10]` |
+
+Example dataset sample:
+
+| symbol | interval | open_time | open | high | low | close | volume | close_time | quote_volume | trade_count |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- | ---: | ---: |
+| BTCUSDT | 1h | 2026-05-28T00:00:00+00:00 | 108742.01 | 109120.44 | 108330.50 | 108990.32 | 1284.52 | 2026-05-28T00:59:59+00:00 | 139957223.15 | 84231 |
+| ETHUSDT | 1h | 2026-05-28T00:00:00+00:00 | 2638.22 | 2661.40 | 2625.12 | 2654.77 | 18452.83 | 2026-05-28T00:59:59+00:00 | 48978103.62 | 53480 |
+| SOLUSDT | 1h | 2026-05-28T00:00:00+00:00 | 168.45 | 170.10 | 167.88 | 169.72 | 93211.14 | 2026-05-28T00:59:59+00:00 | 15796231.88 | 42190 |
+
 Create:
 
 ```txt

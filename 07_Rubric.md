@@ -4,19 +4,19 @@
 
 | Part | Weight | Task marks |
 | --- | ---: | --- |
-| Team 1: Data Collection | 25% | API parameters 4, CSV/count/path 4, multithreaded downloader 4, rate limit 3, thread-safe logging 4, API download benchmark 4, clarity/output files 2 |
-| Team 2: Data Quality | 30% | easy tasks 6, medium tasks 7, hard tasks 9, very hard task 5, pandas sample analysis 3 |
+| Team 1: Data Collection | 20% | API parameters 3, CSV/count/path 4, multithreaded downloader 3, rate limit 3, thread-safe logging 3, API download benchmark 3, clarity/output files 1 |
+| Team 2: Data Quality | 25% | easy tasks 5, medium tasks 6, hard tasks 7, very hard task 4, pandas sample analysis 3 |
 | Team 3: Analytics | 35% | easy tasks 6, medium tasks 9, hard tasks 12, very hard task 8 |
-| Report and reflection | 10% | report 7, reflection 3 |
+| Report and reflection | 20% | report 10, reflection 10 |
 
 ## Criteria
 
 | Part | Weight | Excellent work should show |
 | --- | ---: | --- |
-| Team 1: Data Collection | 25% | Correct API use, exactly 10,000 records, clear CSV structure, multithreaded downloading, appropriate control of concurrent requests, 100-requests-per-minute limit, thread-safe logging, useful log messages, and a clear serial vs multithreaded API download benchmark. |
-| Team 2: Data Quality | 30% | Careful inspection of messy data, correct type conversion, handling of missing values, duplicate detection, symbol standardization, invalid numeric/date detection, useful engineered columns, 50-record pandas sample analysis, and a clear before/after data-quality report. |
+| Team 1: Data Collection | 20% | Correct API use, exactly 10,000 records, clear CSV structure, multithreaded downloading, appropriate control of concurrent requests, 100-requests-per-minute limit, thread-safe logging, useful log messages, and a clear serial vs multithreaded API download benchmark. |
+| Team 2: Data Quality | 25% | Careful inspection of messy data, correct type conversion, handling of missing values, duplicate detection, symbol standardization, invalid numeric/date detection, useful engineered columns, 50-record pandas sample analysis, and a clear before/after data-quality report. |
 | Team 3: Analytics | 35% | Correct Spark setup, full cleaned dataset loaded, calculated columns, time features, temporary SQL view, at least six meaningful SQL queries, grouped and sorted analytics, volatility/activity/time-based summaries, ranked market summary table, saved Spark summary output, and clear interpretation of results. |
-| Report and reflection | 10% | Clear report to Stelios, explanation of technical choices, summary of findings, honest limitations, and thoughtful reflection on concurrency, pandas, Spark, and what could be improved. |
+| Report and reflection | 20% | Clear report to Stelios, explanation of technical choices, summary of findings, honest limitations, and thoughtful reflection on concurrency, pandas, Spark, and what could be improved. |
 
 ## Grade descriptors
 

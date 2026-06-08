@@ -2,7 +2,7 @@
 
 ## GitHub repository
 
-Create a **new private GitHub repository** for this final project.
+Use this template repository to create a **new private GitHub repository** for this final project.
 
 Share the private repository with:
 
@@ -114,7 +114,7 @@ Use clear file names so the reviewer can easily find the report and reflection.
 Before submitting, check that your private GitHub repository contains:
 
 - `README.md` with repository link, report link, and reflection link
-- `scripts/mess_my_data.py`
+- `scripts/` folder containing `get_one_record.py`, `save_dictionary_to_csv.py`, and `mess_my_data.py`
 - `part1_build_dataset.py`
 - Team 2 pandas cleaning notebook or script
 - downloaded Team 3 Spark `.ipynb` notebook from Colab

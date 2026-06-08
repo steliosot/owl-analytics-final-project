@@ -139,11 +139,11 @@ Your script should create the `data/clean/` and `results/` folders automatically
 
 ## Requirements
 
-Team 1 is worth **25 marks**.
+Team 1 is worth **20 marks**.
 
 Your script must complete these tasks:
 
-1. Use the correct API settings. Download data for exactly these symbols: `BTCUSDT`, `ETHUSDT`, `BNBUSDT`, `SOLUSDT`, `XRPUSDT`, `ADAUSDT`, `DOGEUSDT`, `AVAXUSDT`, `LINKUSDT`, and `DOTUSDT`. Use `interval=1h` and `limit=1000` for each symbol. **4 marks**
+1. Use the correct API settings. Download data for exactly these symbols: `BTCUSDT`, `ETHUSDT`, `BNBUSDT`, `SOLUSDT`, `XRPUSDT`, `ADAUSDT`, `DOGEUSDT`, `AVAXUSDT`, `LINKUSDT`, and `DOTUSDT`. Use `interval=1h` and `limit=1000` for each symbol. **3 marks**
 
    Example output:
 
@@ -165,7 +165,7 @@ Your script must complete these tasks:
    Record count check: passed
    ```
 
-3. Use multithreading to download API data. Your code should show that multiple API downloads can be started without waiting for each symbol to finish one by one. **4 marks**
+3. Use multithreading to download API data. Your code should show that multiple API downloads can be started without waiting for each symbol to finish one by one. **3 marks**
 
    Example output:
 
@@ -187,7 +187,7 @@ Your script must complete these tasks:
    Rate-limit wait events logged: 0
    ```
 
-5. Write a reliable log file. Use a lock so that only one thread writes to the log file at a time. Log when each request starts, when each request finishes, how many records were received for each symbol, and when the final CSV is written. **4 marks**
+5. Write a reliable log file. Use a lock so that only one thread writes to the log file at a time. Log when each request starts, when each request finishes, how many records were received for each symbol, and when the final CSV is written. **3 marks**
 
    Example output:
 
@@ -198,7 +198,7 @@ Your script must complete these tasks:
    2026-06-07T09:12:25Z | WROTE csv=data/clean/clean_market_data.csv records=10000
    ```
 
-6. Add a benchmark that compares serial API downloading with multithreaded API downloading. The benchmark must compare the download step only and save the result as `results/runtime_comparison.csv`. **4 marks**
+6. Add a benchmark that compares serial API downloading with multithreaded API downloading. The benchmark must compare the download step only and save the result as `results/runtime_comparison.csv`. **3 marks**
 
    Example output:
 
@@ -209,7 +209,7 @@ Your script must complete these tasks:
    Saved: results/runtime_comparison.csv
    ```
 
-7. Keep the script clear and easy to run. Use clear terminal output, sensible file paths, and readable code structure. **2 marks**
+7. Keep the script clear and easy to run. Use clear terminal output, sensible file paths, and readable code structure. **1 mark**
 
    Example output:
 

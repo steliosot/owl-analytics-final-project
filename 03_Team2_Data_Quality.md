@@ -48,7 +48,7 @@ part2_clean_with_pandas.py
 
 Complete all ten tasks below.
 
-Team 2 is worth **30 marks**.
+Team 2 is worth **25 marks**.
 
 Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, find the problems, clean the data, and save a reliable cleaned CSV for the Analytics team. You will do a small balanced pandas analysis on only 50 records, but this is just a sample check. It is not the final analytics section.
 
@@ -77,7 +77,7 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
    trade_count   object
    ```
 
-3. Count missing values for every column and identify which columns have the most missing data. Do not only show the total number of missing values; explain which columns are most affected. **2 marks**
+3. Count missing values for every column and identify which columns have the most missing data. Do not only show the total number of missing values; explain which columns are most affected. **1 mark**
 
    Example output:
 
@@ -91,7 +91,7 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
 
 ### Medium tasks
 
-4. Convert all price, volume, and trade-count columns to numeric data types using safe conversion. If a value such as `unknown`, `error`, or an empty cell cannot become a number, mark it as invalid/missing so it can be handled later. **3 marks**
+4. Convert all price, volume, and trade-count columns to numeric data types using safe conversion. If a value such as `unknown`, `error`, or an empty cell cannot become a number, mark it as invalid/missing so it can be handled later. **2 marks**
 
    Example output:
 
@@ -124,7 +124,7 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
 
 ### Hard tasks
 
-7. Find and remove duplicated rows. Explain how many duplicates were found before you removed them, and make sure the cleaned dataset does not count the same market candle more than once. **3 marks**
+7. Find and remove duplicated rows. Explain how many duplicates were found before you removed them, and make sure the cleaned dataset does not count the same market candle more than once. **2 marks**
 
    Example output:
 
@@ -134,7 +134,7 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
    Rows after removing duplicates: 9778
    ```
 
-8. Detect impossible numeric values, such as negative volume, negative trade count, or `high` lower than `low`. Explain which rules you used to decide that a row was invalid. **3 marks**
+8. Detect impossible numeric values, such as negative volume, negative trade count, or `high` lower than `low`. Explain which rules you used to decide that a row was invalid. **2 marks**
 
    Example output:
 
@@ -152,7 +152,7 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
    ```txt
    Created columns:
    price_range, price_change, percent_change, candle_direction
-   
+
    Example row:
    open=100.00 close=105.00 high=110.00 low=95.00
    price_range=15.00 price_change=5.00 percent_change=5.00 candle_direction=up
@@ -160,7 +160,7 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
 
 ### Very hard task
 
-10. Build a before/after data-quality report with row counts, missing values, invalid numeric values, invalid timestamps, duplicates, rows removed or repaired, and a short paragraph explaining the cleaning decisions. The report should make it clear what changed between the messy dataset and the cleaned dataset. **5 marks**
+10. Build a before/after data-quality report with row counts, missing values, invalid numeric values, invalid timestamps, duplicates, rows removed or repaired, and a short paragraph explaining the cleaning decisions. The report should make it clear what changed between the messy dataset and the cleaned dataset. **4 marks**
 
    Example output:
 

@@ -1,12 +1,14 @@
 # Report and Reflection
 
+Report and reflection are worth **20 marks** total, split equally between the two written pieces.
+
 ## Final task: Report to Stelios
 
 At the end of the week, Stelios asks:
 
 > "Please write me a short report. I do not need every line of code explained. I need to understand what you built, whether the data is reliable, and what the analytics show."
 
-Submit a report of around 1,000 words.
+Submit a report of around 800-1,000 words.
 
 Save the report in a `reports/` folder. You may submit it as a Markdown file, Word document, or plain text file.
 
@@ -32,7 +34,7 @@ Your report should include:
 
 ## Reflection
 
-After the report, write a reflection of around 1,000 words. Save it in the `reports/` folder as a Markdown file, Word document, or plain text file.
+After the report, write a reflection of around 800-1,000 words. Save it in the `reports/` folder as a Markdown file, Word document, or plain text file.
 
 Example file names:
 

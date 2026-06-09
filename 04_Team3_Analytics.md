@@ -26,26 +26,19 @@ part3_spark_analytics.ipynb
 
 ## Challenge tasks
 
-Complete all ten tasks below.
+Complete all eight tasks below.
 
 Team 3 is worth **35 marks**.
 
 ### Easy tasks
 
-1. Start a Spark session and load the full `data/clean/cleaned_market_data.csv` file. This must be the cleaned file from Team 2, not the messy file and not the 50-record pandas sample. **2 marks**
+1. Start a Spark session, load the full `data/clean/cleaned_market_data.csv` file, and print the schema, row count, and column names. This must be the cleaned file from Team 2, not the messy file and not the 50-record pandas sample. Use this to prove that Spark has loaded the dataset correctly. **3 marks**
 
    Example output:
 
    ```txt
    Spark session started
    Loaded file: data/clean/cleaned_market_data.csv
-   ```
-
-2. Print the schema, row count, and column names. Use this to prove that Spark has loaded the dataset correctly and that important columns such as prices, volume, timestamps, and trade counts are available. **2 marks**
-
-   Example output:
-
-   ```txt
    Row count: 8364
    Columns: symbol, interval, open_time, open, high, low, close, volume, trade_count
    open_time: timestamp
@@ -53,7 +46,7 @@ Team 3 is worth **35 marks**.
    volume: double
    ```
 
-3. Register the DataFrame as a temporary SQL view named `market_data`. This lets you run Spark SQL queries against the dataset using the table name `market_data`. **2 marks**
+2. Register the DataFrame as a temporary SQL view named `market_data` and run a small test query. This lets you run Spark SQL queries against the dataset using the table name `market_data`. **3 marks**
 
    Example output:
 
@@ -64,7 +57,7 @@ Team 3 is worth **35 marks**.
 
 ### Medium tasks
 
-4. Add or verify `price_range`, `price_change`, `percent_change`, and `candle_direction` in Spark. Use the same meanings as Team 2: `price_range = high - low`, `price_change = close - open`, `percent_change = (price_change / open) * 100`, and `candle_direction` is `up`, `down`, or `flat` based on whether the close price is higher, lower, or equal to the open price. Show a small preview proving the columns exist. **3 marks**
+3. Add or verify `price_range`, `price_change`, `percent_change`, and `candle_direction` in Spark. Use the same meanings as Team 2: `price_range = high - low`, `price_change = close - open`, `percent_change = (price_change / open) * 100`, and `candle_direction` is `up`, `down`, or `flat` based on whether the close price is higher, lower, or equal to the open price. Show a small preview proving the columns exist. **4 marks**
 
    Example output:
 
@@ -76,7 +69,7 @@ Team 3 is worth **35 marks**.
    symbol=BTCUSDT price_range=880.85 price_change=403.87 percent_change=0.51 candle_direction=up
    ```
 
-5. Create time features from `open_time`, such as `trade_date`, `trade_hour`, and day of week. These columns allow you to answer questions such as which hour of the day or which date had the most trading activity. **3 marks**
+4. Create time features from `open_time`, such as `trade_date`, `trade_hour`, and day of week. Then run full-dataset Spark SQL queries for average close price by symbol, average volume by symbol, and row count by symbol. Briefly compare this full result with the 50-record pandas sample from Team 2 and explain why the full Spark result is more reliable. **5 marks**
 
    Example output:
 
@@ -86,13 +79,7 @@ Team 3 is worth **35 marks**.
 
    Example row:
    open_time=2026-05-04 02:00:00 trade_date=2026-05-04 trade_hour=2 day_of_week=Mon
-   ```
 
-6. Run full-dataset Spark SQL queries for average close price by symbol, average volume by symbol, and row count by symbol. Briefly compare this full result with the 50-record pandas sample from Team 2 and explain why the full Spark result is more reliable. **3 marks**
-
-   Example output:
-
-   ```txt
    Average close by symbol:
    BTCUSDT 79160.87
    ETHUSDT 1986.66
@@ -106,7 +93,7 @@ Team 3 is worth **35 marks**.
 
 ### Hard tasks
 
-7. Create a volatility ranking by symbol using average, minimum, maximum, and standard deviation of `price_range`. A symbol with a higher average or standard deviation of `price_range` is usually more volatile. **4 marks**
+5. Create a volatility ranking by symbol using average, minimum, maximum, and standard deviation of `price_range`. A symbol with a higher average or standard deviation of `price_range` is usually more volatile. **4 marks**
 
    Example output:
 
@@ -116,7 +103,7 @@ Team 3 is worth **35 marks**.
    rank=2 symbol=ETHUSDT avg_price_range=26.73 stddev_price_range=12.84
    ```
 
-8. Create an activity ranking by symbol using total trades, total quote volume, and average volume. A symbol with more trades and higher quote volume should appear more active. **4 marks**
+6. Create an activity ranking by symbol using total trades, total quote volume, and average volume. A symbol with more trades and higher quote volume should appear more active. **4 marks**
 
    Example output:
 
@@ -126,7 +113,7 @@ Team 3 is worth **35 marks**.
    rank=2 symbol=BTCUSDT total_trades=73422311 total_quote_volume=812345678.44
    ```
 
-9. Analyze activity by time using the time features. Find the busiest hour and busiest date by `trade_count` and `quote_volume`, then explain when market activity was highest in the cleaned dataset. **4 marks**
+7. Analyze activity by time using the time features. Find the busiest hour and busiest date by `trade_count` and `quote_volume`, then explain when market activity was highest in the cleaned dataset. **4 marks**
 
    Example output:
 
@@ -140,7 +127,7 @@ Team 3 is worth **35 marks**.
 
 ### Very hard task
 
-10. Build a final ranked market summary table with one row per symbol. Include total records, average volume, total trades, average percent change, average price range, up/down/flat candle counts, volatility rank, activity rank, and a short interpretation for Zehra. The final table should help Zehra quickly see which symbols were most active, most volatile, and most important to mention in the report. Save this result as `results/spark_market_summary.csv`. **8 marks**
+8. Build a final ranked market summary table with one row per symbol. Include total records, average volume, total trades, average percent change, average price range, up/down/flat candle counts, volatility rank, activity rank, and a short interpretation for Zehra. The final table should help Zehra quickly see which symbols were most active, most volatile, and most important to mention in the report. Save this result as `results/spark_market_summary.csv`. **8 marks**
 
    Example output:
 

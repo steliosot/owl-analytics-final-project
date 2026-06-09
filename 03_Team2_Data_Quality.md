@@ -46,7 +46,7 @@ part2_clean_with_pandas.py
 
 ## Challenge tasks
 
-Complete all ten tasks below.
+Complete all eight tasks below.
 
 Team 2 is worth **25 marks**.
 
@@ -54,7 +54,7 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
 
 ### Easy tasks
 
-1. Load `data/messy/messy_market_data.csv` with pandas and print the number of rows and columns. This proves that you are using the messy file created by Dara's script and that the file has loaded correctly. **2 marks**
+1. Load `data/messy/messy_market_data.csv` with pandas, print the number of rows and columns, show the first 10 rows, and print the data types of all columns. This proves that you are using the messy file created by Dara's script and helps you identify columns that are stored as text even though they should be numbers or timestamps. **3 marks**
 
    Example output:
 
@@ -62,13 +62,6 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
    Loaded data/messy/messy_market_data.csv
    Rows: 9991
    Columns: 13
-   ```
-
-2. Show the first 10 rows and the data types of all columns. Use this to inspect what the dataset looks like before cleaning and to identify columns that are stored as text even though they should be numbers or timestamps. **2 marks**
-
-   Example output:
-
-   ```txt
    First 10 rows shown
    symbol        object
    open_time     object
@@ -77,7 +70,7 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
    trade_count   object
    ```
 
-3. Count missing values for every column and identify which columns have the most missing data. Do not only show the total number of missing values; explain which columns are most affected. **1 mark**
+2. Count missing values for every column and identify which columns have the most missing data. Do not only show the total number of missing values; explain which columns are most affected. **2 marks**
 
    Example output:
 
@@ -91,7 +84,7 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
 
 ### Medium tasks
 
-4. Convert all price, volume, and trade-count columns to numeric data types using safe conversion. If a value such as `unknown`, `error`, or an empty cell cannot become a number, mark it as invalid/missing so it can be handled later. **2 marks**
+3. Convert all price, volume, and trade-count columns to numeric data types using safe conversion. If a value such as `unknown`, `error`, or an empty cell cannot become a number, mark it as invalid/missing so it can be handled later. **2 marks**
 
    Example output:
 
@@ -101,7 +94,7 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
    Invalid numeric rows after conversion: 769
    ```
 
-5. Convert `open_time` and `close_time` to timestamp values and detect invalid dates. Valid timestamps should become real date/time values; invalid values such as `not_a_date` or impossible dates should be counted as invalid. **2 marks**
+4. Convert `open_time` and `close_time` to timestamp values, detect invalid dates, and clean the `symbol` column. Valid timestamps should become real date/time values; invalid values such as `not_a_date` should be counted as invalid. Symbol values such as `btcusdt`, ` BTCUSDT `, and `BTC/USDT` should become `BTCUSDT`. **4 marks**
 
    Example output:
 
@@ -110,13 +103,6 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
    open_time, close_time
    Invalid open_time values: 205
    Invalid close_time values: 197
-   ```
-
-6. Clean the `symbol` column so values such as `btcusdt`, ` BTCUSDT `, and `BTC/USDT` become `BTCUSDT`. This means removing extra spaces, using uppercase letters, and removing `/` characters. **2 marks**
-
-   Example output:
-
-   ```txt
    Symbols before cleaning: btcusdt,  BTCUSDT , BTC/USDT
    Symbols after cleaning: BTCUSDT
    Unique cleaned symbols: 10
@@ -124,7 +110,7 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
 
 ### Hard tasks
 
-7. Find and remove duplicated rows. Explain how many duplicates were found before you removed them, and make sure the cleaned dataset does not count the same market candle more than once. **2 marks**
+5. Find and remove duplicated rows. Explain how many duplicates were found before you removed them, and make sure the cleaned dataset does not count the same market candle more than once. **2 marks**
 
    Example output:
 
@@ -134,7 +120,7 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
    Rows after removing duplicates: 9778
    ```
 
-8. Detect impossible numeric values, such as negative volume, negative trade count, or `high` lower than `low`. Explain which rules you used to decide that a row was invalid. **2 marks**
+6. Detect impossible numeric values, such as negative volume, negative trade count, or `high` lower than `low`. Explain which rules you used to decide that a row was invalid. **2 marks**
 
    Example output:
 
@@ -145,7 +131,7 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
    Invalid numeric rows total: 769
    ```
 
-9. Create `price_range`, `price_change`, `percent_change`, and `candle_direction` so the cleaned dataset is ready for checking and later analytics. Calculate `price_range` as `high - low`, `price_change` as `close - open`, and `percent_change` as `(price_change / open) * 100`. Set `candle_direction` to `up` when `close` is greater than `open`, `down` when `close` is lower than `open`, and `flat` when they are equal. **3 marks**
+7. Create `price_range`, `price_change`, `percent_change`, and `candle_direction` so the cleaned dataset is ready for checking and later analytics. Calculate `price_range` as `high - low`, `price_change` as `close - open`, and `percent_change` as `(price_change / open) * 100`. Set `candle_direction` to `up` when `close` is greater than `open`, `down` when `close` is lower than `open`, and `flat` when they are equal. **3 marks**
 
    Example output:
 
@@ -160,7 +146,7 @@ Team 2 is mainly about data quality. Your job is to take Dara's messy dataset, f
 
 ### Very hard task
 
-10. Build a before/after data-quality report with row counts, missing values, invalid numeric values, invalid timestamps, duplicates, rows removed or repaired, and a short paragraph explaining the cleaning decisions. The report should make it clear what changed between the messy dataset and the cleaned dataset. **4 marks**
+8. Build a before/after data-quality report with row counts, missing values, invalid numeric values, invalid timestamps, duplicates, rows removed or repaired, and a short paragraph explaining the cleaning decisions. The report should make it clear what changed between the messy dataset and the cleaned dataset. **4 marks**
 
    Example output:
 
@@ -230,16 +216,16 @@ Explain why pandas is useful for checking and cleaning data, but why a 50-record
 
 This sample check is worth **3 marks**.
 
-1. Answer at least three sample-analysis questions using only 50 records and save `results/pandas_sample_results.csv`. **2 marks**
+- Sample requirement A: Answer at least three sample-analysis questions using only 50 records and save `results/pandas_sample_results.csv`. **2 marks**
 
-   Example output:
+  Example output:
 
-   ```txt
-   Saved results/pandas_sample_results.csv
-   Sample rows used: 50
-   Symbols included: 10
-   Records per symbol: 5
-   Questions answered: 3
-   ```
+  ```txt
+  Saved results/pandas_sample_results.csv
+  Sample rows used: 50
+  Symbols included: 10
+  Records per symbol: 5
+  Questions answered: 3
+  ```
 
-2. Explain why pandas is useful for checking and cleaning, but not enough for final full-dataset analytics. **1 mark**
+- Sample requirement B: Explain why pandas is useful for checking and cleaning, but not enough for final full-dataset analytics. **1 mark**

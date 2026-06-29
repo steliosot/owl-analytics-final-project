@@ -1,5 +1,24 @@
 # Big Data Analytics Final Project
 
+
+## create a virtual environment and activate it
+
+Windows \
+python -m venv .venv \
+.venv\Scripts\activate \
+
+## Install requirements
+
+pip install -r requirements.txt\
+
+# Run
+
+python main.py
+
+# list packages
+pip list
+
+
 ## Your First Week at Owl Analytics
 
 This repository contains the final project brief and starter folder structure.

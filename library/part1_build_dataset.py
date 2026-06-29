@@ -81,7 +81,7 @@ def covert_timestamp(ms):
 
 #API--------------------------------------------------------------------------------
 
-def downlaod_symbol(symbol):
+def download_symbol(symbol):
     with semaphore:
         wait_for_rate_limit()
 
@@ -100,7 +100,7 @@ def downlaod_symbol(symbol):
         response =  requests.get(BASE_URL, params=params, timeout=30)
         response.raise_for_status()
 
-        data = response.json
+        data = response.json()
 
         rows = []
 
@@ -135,7 +135,7 @@ def save_csv(rows):
         "interval",
         "open_time",
         "open",
-        "high"
+        "high",
         "low",
         "close",
         "volume",
@@ -162,7 +162,7 @@ def serial_download():
     start = time.perf_counter()
 
     for symbol in SYMBOLS:
-        all_rows.extend(downlaod_symbol(symbol))
+        all_rows.extend(download_symbol(symbol))
 
     elapsed = time.perf_counter() - start
 
@@ -176,7 +176,7 @@ def threaded_download():
 
     with ThreadPoolExecutor(max_workers = MAX_CONCURRENT_REQUESTS) as executor:
         futures = {
-            executor.submit(downlaod_symbol, s): s
+            executor.submit(download_symbol, s): s
             for s in SYMBOLS
         }
 
